@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘健 - 高级前端开发工程师</title>
+    <style>
+        body {
+            font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007bff;
+        }
+        .header-text {
+            flex: 1;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-info span {
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #0056b3;
+        }
+        section {
+            margin-bottom: 25px;
+        }
+        section h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+        article.job, article.project {
+            margin-bottom: 15px;
+        }
+        article.job h3, article.project h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        article.job p, article.project p {
+            margin: 5px 0;
+        }
+        ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+        .job-intention {
+            margin-bottom: 15px;
+        }
+        @media print {
+            .buttons {
+                display: none !important;
+            }
+            body {
+                margin: 0;
+                padding: 8mm;
+                font-size: 10pt;
+            }
+            header {
+                flex-direction: column;
+                gap: 10mm;
+            }
+            .profile-photo {
+                width: 80pt;
+                height: 80pt;
+            }
+            .header-text {
+                text-align: center;
+            }
+            .contact-info {
+                gap: 15mm;
+                justify-content: space-around;
+                flex-wrap: nowrap;
+                font-size: 9pt;
+            }
+            .contact-info span {
+                white-space: nowrap;
+            }
+            section {
+                margin-bottom: 8mm;
+            }
+            article.job, article.project {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 8mm;
+                size: A4;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .buttons {
+                display: none;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.85em;
+            }
+            .contact-info span {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const buttons = document.querySelector('.buttons');
+            if (buttons) buttons.style.display = 'none';
+
+            const element = document.body;
+            const options = {
+                margin: 0.3,
+                filename: '刘健_简历.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+                html2pdf: {
+                    html2canvas: {
+                        onclone: (clonedDoc) => {
+                            const clonedButtons = clonedDoc.querySelector('.buttons');
+                            if (clonedButtons) clonedButtons.style.display = 'none';
+                        }
+                    }
+                }
+            };
+
+            html2pdf().set(options).from(element).save().then(() => {
+                if (buttons) buttons.style.display = 'block';
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="https://foruda.gitee.com/avatar/1756789598314378230/2342420_liujianliuxing_1756789598.png" alt="刘健的头像" class="profile-photo">
+        <div class="header-text">
+            <h1>刘健</h1>
+            <h2>高级前端开发工程师 · 技术驱动创新</h2>
+            <p>4.5年专业前端开发经验 · 专注高效、可扩展的Web与移动端解决方案</p>
+        </div>
+    </header>
+
+    <div class="contact-info">
+        <span>📞 188-7118-3644</span>
+        <span>✉️ zhangfrontend@example.com</span>
+        <span>🌐 <a href="https://github.com/zhangfrontend" target="_blank" rel="noopener noreferrer">github.com/zhangfrontend</a></span>
+        <span>📍 上海 · 可全国出差</span>
+    </div>
+
+    <div class="buttons">
+        <button onclick="window.print()">打印简历</button>
+        <button onclick="downloadPDF()">下载PDF</button>
+    </div>
+
+    <main>
+        <section id="core-advantages">
+            <h2>核心优势</h2>
+            <ul>
+                <li>精通Vue.js和React生态，构建高性能、响应式Web应用，提升用户互动效率</li>
+                <li>跨平台专家：熟练Taro、UniApp，实现多端统一开发，兼容性高达98%，减少维护成本</li>
+                <li>数据可视化大师：利用ECharts和uCharts创建动态、交互式图表，支持实时数据分析</li>
+                <li>现代技术栈：TypeScript、WebSocket应用，提升代码质量和实时功能</li>
+                <li>移动优化：H5嵌入App和小程序开发，优化加载速度和用户体验，处理高并发场景</li>
+            </ul>
+        </section>
+
+        <section id="work-experience">
+            <h2>工作经验</h2>
+            <article class="job">
+                <h3>高级前端开发工程师</h3>
+                <p>上海某健身器材研发公司 · 上市公司 · 员工1000+ · 年营收50亿+</p>
+                <p>2023.02 - 至今</p>
+                <ul>
+                    <li>领导开发Vue2+ElementUI企业级管理平台，优化流程，提升运营效率20%</li>
+                    <li>构建高并发微信小程序商城，支持50万+日活用户，集成订单管理和支付系统</li>
+                    <li>设计ECharts实时数据大屏，支持多维度监控，减少决策时间</li>
+                    <li>开发Vant+Vue2 H5页面嵌入App，确保跨设备无缝适配</li>
+                    <li>主导Taro+React跨端电商平台，兼容小程序、H5和App，服务百万用户</li>
+                </ul>
+                <p><strong>技术栈：</strong> Vue2, ElementUI, ECharts, Taro, React, Vant, WebSocket, 微信小程序</p>
+            </article>
+            <article class="job">
+                <h3>前端开发工程师</h3>
+                <p>武汉某科技公司 · 成长型企业 · 专注移动端解决方案</p>
+                <p>2021.02 - 2023.01</p>
+                <ul>
+                    <li>使用UniApp开发跨平台应用，支持小程序、安卓和iOS，统一用户体验</li>
+                    <li>创建支持离线操作的移动管理工具，包括数据录入和图片上传，提升现场效率</li>
+                    <li>集成uCharts移动端数据可视化模块，支持实时更新和分析</li>
+                    <li>优化业务系统前端，提升响应速度30%，提高用户满意度</li>
+                </ul>
+                <p><strong>技术栈：</strong> UniApp, Vue2, uCharts, 微信小程序, HTML5, 移动端开发</p>
+            </article>
+        </section>
+
+        <section id="core-projects">
+            <h2>核心项目</h2>
+            <article class="project">
+                <h3>企业级管理平台</h3>
+                <p>领导构建Vue2+ElementUI综合平台，集成数据管理、实时监控，提升企业效率</p>
+                <h4>核心成就</h4>
+                <ul>
+                    <li>实现20+交互式ECharts图表，支持实时更新和自定义</li>
+                    <li>前后端分离架构，确保99.9%稳定性，处理高并发</li>
+                    <li>响应式设计，多端适配（PC、平板、手机）</li>
+                    <li>优化用户流程，降低学习曲线，提高生产力</li>
+                </ul>
+                <p><strong>技术栈：</strong> Vue2, ElementUI, ECharts, WebSocket</p>
+                <p><strong>20+ 图表 | 99.9% 稳定性 | 多端适配</strong></p>
+            </article>
+            <article class="project">
+                <h3>跨端电商平台</h3>
+                <p>基于Taro+React的电商系统，支持多端，服务100万+用户</p>
+                <h4>技术创新</h4>
+                <ul>
+                    <li>代码复用提升开发效率50%，一码多端</li>
+                    <li>WebSocket实现毫秒级实时同步</li>
+                    <li>98%设备兼容性，适配多种屏幕</li>
+                    <li>PWA支持离线访问，增强用户保留</li>
+                </ul>
+                <p><strong>技术栈：</strong> Taro, React, WebSocket, PWA, 微信小程序</p>
+                <p><strong>100万+ 用户 | 98% 兼容性 | 50万+ 日活</strong></p>
+            </article>
+            <article class="project">
+                <h3>数据可视化中心</h3>
+                <p>ECharts+uCharts解决方案，支持实时多端展示</p>
+                <h4>关键价值</h4>
+                <ul>
+                    <li>实时渲染大屏和移动端数据</li>
+                    <li>多维度分析，30+图表类型</li>
+                    <li>自定义配置，满足多样业务</li>
+                    <li>高性能处理百万级数据</li>
+                </ul>
+                <p><strong>技术栈：</strong> ECharts, uCharts, Canvas, 实时计算</p>
+                <p><strong>30+ 图表 | 百万级 数据 | 实时刷新</strong></p>
+            </article>
+        </section>
+
+        <section id="job-intention">
+            <h2>职业优势</h2>
+            <div class="job-intention">
+                <ul>
+                    <li>4.5年经验，精通Vue、React和跨端框架，交付高性能应用</li>
+                    <li>擅长优化用户体验和系统效率，量化业务影响</li>
+                    <li>掌握高级技术如TypeScript、实时通信，处理复杂需求</li>
+                    <li>快速适应新技术，领导项目交付，适合高增长环境</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>教育背景</h2>
+            <p><strong>武汉科技大学</strong></p>
+            <p>计算机相关专业 · 大专</p>
+            <p>2010 - 2013</p>
+        </section>
+    </main>
+</body>
+</html>
