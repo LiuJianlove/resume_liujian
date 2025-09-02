@@ -24,6 +24,10 @@
             align-items: center;
             gap: 20px;
         }
+        .contact-info{
+            display: flex;
+            justify-content: space-around;
+        }
 
         .profile-photo {
             width: 100px;
@@ -188,17 +192,20 @@
         <img src="./liujian.jpg" alt="刘健的头像" class="profile-photo">
         <div class="header-text">
             <h1>刘健</h1>
-            <!-- <h2>高级前端开发工程师</h2> -->
+            <h2>高级前端开发工程师</h2>
             <!-- <p>4.5年专业前端开发经验 · 专注高效、可扩展的Web与移动端解决方案</p> -->
-            <span>📞188-7118-3644</span>&nbsp;&nbsp;
-            <span>stephen925@foxmail.com</span>&nbsp;&nbsp;
-            <span>📍上海</span>
+            <div class="contact-info">
+                <span>📞 188-7118-3644</span>
+                <span>✉️ stephen925@foxmail.com</span>
+                <span>📍 上海</span>
+            </div>
             <div class="buttons">
                 <button onclick="window.print()">打印简历</button>
                 <button onclick="downloadPDF()">下载PDF</button>
             </div>
         </div>
     </header>
+
     <main>
         <section id="core-advantages">
             <h2>核心优势</h2>
