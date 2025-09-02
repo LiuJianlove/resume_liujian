@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             line-height: 1.6;
             color: #333;
         }
+
         header {
             text-align: center;
             margin-bottom: 20px;
@@ -22,6 +24,7 @@
             align-items: center;
             gap: 20px;
         }
+
         .profile-photo {
             width: 100px;
             height: 100px;
@@ -29,35 +32,17 @@
             object-fit: cover;
             border: 2px solid #007bff;
         }
+
         .header-text {
             flex: 1;
             text-align: center;
         }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .contact-info span {
-            font-size: 0.9em;
-            display: inline-flex;
-            align-items: center;
-            white-space: nowrap;
-            text-align: center; /* 确保在小屏幕上居中显示 */
-        }
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+
         .buttons {
             text-align: center;
             margin: 20px 0;
         }
+
         .buttons button {
             padding: 10px 20px;
             margin: 0 10px;
@@ -68,96 +53,104 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
         .buttons button:hover {
             background-color: #0056b3;
         }
+
         section {
             margin-bottom: 25px;
         }
+
         section h2 {
             border-bottom: 2px solid #007bff;
             padding-bottom: 5px;
             margin-bottom: 12px;
         }
-        article.job, article.project {
+
+        article.job,
+        article.project {
             margin-bottom: 15px;
         }
-        article.job h3, article.project h3 {
+
+        article.job h3,
+        article.project h3 {
             margin: 0;
             font-size: 1.2em;
         }
-        article.job p, article.project p {
+
+        article.job p,
+        article.project p {
             margin: 5px 0;
         }
+
         ul {
             margin: 8px 0;
             padding-left: 20px;
         }
+
         .job-intention {
             margin-bottom: 15px;
         }
+
         @media print {
             .buttons {
                 display: none !important;
             }
+
             body {
                 margin: 0;
                 padding: 8mm;
                 font-size: 10pt;
             }
+
             header {
                 flex-direction: column;
                 gap: 10mm;
             }
+
             .profile-photo {
                 width: 80pt;
                 height: 80pt;
             }
+
             .header-text {
                 text-align: center;
             }
-            .contact-info {
-                gap: 15mm;
-                justify-content: space-around;
-                flex-wrap: nowrap;
-                font-size: 9pt;
-            }
-            .contact-info span {
-                white-space: nowrap;
-            }
+
+
+
             section {
                 margin-bottom: 8mm;
             }
-            article.job, article.project {
+
+            article.job,
+            article.project {
                 page-break-inside: avoid;
             }
+
             @page {
                 margin: 8mm;
                 size: A4;
             }
         }
+
         @media screen and (max-width: 600px) {
             .buttons {
                 display: none;
             }
+
             header {
                 flex-direction: column;
                 gap: 15px;
             }
+
             .profile-photo {
                 width: 80px;
                 height: 80px;
             }
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                font-size: 0.85em;
-            }
-            .contact-info span {
-                text-align: center;
-                width: 100%;
-            }
+
+
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -189,27 +182,23 @@
         }
     </script>
 </head>
+
 <body>
     <header>
         <img src="./liujian.jpg" alt="刘健的头像" class="profile-photo">
         <div class="header-text">
             <h1>刘健</h1>
-            <h2>高级前端开发工程师 · 技术驱动创新</h2>
-            <p>4.5年专业前端开发经验 · 专注高效、可扩展的Web与移动端解决方案</p>
+            <!-- <h2>高级前端开发工程师</h2> -->
+            <!-- <p>4.5年专业前端开发经验 · 专注高效、可扩展的Web与移动端解决方案</p> -->
+            <span>📞 188-7118-3644</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>✉️ stephen925@foxmail.com</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>📍 上海</span>
+            <div class="buttons">
+                <button onclick="window.print()">打印简历</button>
+                <button onclick="downloadPDF()">下载PDF</button>
+            </div>
         </div>
     </header>
-
-    <div class="contact-info">
-        <span>📞 188-7118-3644</span>
-        <span>✉️ stephen925@foxmail.com</span>
-        <span>📍 上海</span>
-    </div>
-
-    <div class="buttons">
-        <button onclick="window.print()">打印简历</button>
-        <button onclick="downloadPDF()">下载PDF</button>
-    </div>
-
     <main>
         <section id="core-advantages">
             <h2>核心优势</h2>
@@ -302,4 +291,5 @@
         </section>
     </main>
 </body>
+
 </html>
