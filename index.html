@@ -10,7 +10,7 @@
             font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 5px;
             line-height: 1.6;
             color: #333;
         }
@@ -63,45 +63,51 @@
             background-color: #0056b3;
         }
 
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+        }
+
         section {
-            margin-bottom: 25px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         section h2 {
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 5px;
-            margin-bottom: 12px;
-        }
-
-        article.job,
-        article.project {
-            margin-bottom: 15px;
-        }
-
-        article.job h3,
-        article.project h3 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        article.job p,
-        article.project p {
-            margin: 5px 0;
+            color: #007bff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
 
         ul {
-            margin: 8px 0;
+            list-style-type: disc;
             padding-left: 20px;
         }
 
-        .job-intention {
-            margin-bottom: 15px;
+        article {
+            margin-bottom: 20px;
+        }
+
+        article h3 {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        article p {
+            margin: 5px 0;
+            color: #555;
         }
 
         .education-item {
-            margin-bottom: 10px;
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
         }
 
         @media print {
@@ -111,7 +117,7 @@
 
             body {
                 margin: 0;
-                padding: 8mm;
+                padding: 2mm;
                 font-size: 10pt;
             }
 
@@ -132,7 +138,7 @@
 
 
             section {
-                margin-bottom: 8mm;
+                margin-bottom: 2mm;
             }
 
             article.job,
@@ -141,7 +147,7 @@
             }
 
             @page {
-                margin: 8mm;
+                margin: 2mm;
                 size: A4;
             }
         }
@@ -284,7 +290,7 @@
             <article class="project">
                 <h3>H5页面，基于Vant、Vue2开发的H5嵌入Android和iOS</h3>
                 <p>基于Vant UI的H5管理页面，无缝嵌入Android/iOS App，实现项目、园区、场地和产品的添加/编辑，提升后台运营效率。</p>
-                <h4>关键价值</h4>APP
+                <h4>关键价值</h4>
                 <ul>
                     <li>集成表单验证、地图定位（ShGdMap）、弹出框搜索和文件上传，支持跨平台热更新，减少App审核周期。</li>
                     <li>自定义组件（如MyPopup、日历选择、单选组），确保用户友好交互，降低开发和维护成本20%。</li>
@@ -296,7 +302,7 @@
                   <article class="project">
                 <h3>H5页面，适配多种不同屏幕大小的健身器材</h3>
                 <p>响应式H5页面，适配跑步机、划船器等健身器材的多尺寸屏幕，提供运动指导、饮食建议、记录和排名功能，支持110万+用户。</p>
-                <h4>核心成就</h4>App
+                <h4>核心成就</h4>
                 <ul>
                     <li>媒体查询和flex布局实现自适应（e.g., min-width:1100px调整字体大小），兼容PC/移动端，确保无缝显示图表和图像。</li>
                     <li>Tab切换和实时API加载，结合垂直文字展示，nodata处理，提升交互性和数据可视化体验。</li>
@@ -307,7 +313,7 @@
             <article class="project">
                 <h3>微信小程序</h3>
                 <p>来一场小程序，原生微信小程序（110万+ 用户） + 基于Taro、React的官方商城小程序</p>
-                <h4>核心成就</h4>App
+                <h4>核心成就</h4>
                 <ul>
                     <li>原生微信小程序，用Ucharts实现与华为合作的鸿蒙系统跑步机运动指导相关图表可视化功能，将运动指导功能嵌入小程序，提升用户体验</li>
                     <li>使用Taro、React实现官方商城小程序，提升开发效率</li>
@@ -318,7 +324,7 @@
             <article class="project">
                 <h3>UniApp，基于UniApp开发，编译成Android、iOSApp、微信小程序、支付宝小程序</h3>
                 <p>基于UniApp的企业订餐App，和二手游戏设备交易平台小程序（微信和支付宝小程序）</p>
-                <h4>核心成就</h4>App
+                <h4>核心成就</h4>
                 <ul>
                     <li>代码复用提升开发效率50%，一码多端</li>
                     <li>99%设备兼容性，适配Android、iOS，微信小程序、支付宝小程序</li>
