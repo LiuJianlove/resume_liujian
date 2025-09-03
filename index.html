@@ -4,217 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘健 - 高级前端开发工程师</title>
+    <title>刘健 - 前端开发工程师简历</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 5px;
-            line-height: 1.6;
-            color: #333;
-        }
-        h1{
-            margin: 6px 0;
-        }
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         .profile-photo {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #007bff;
-        }
-
-        .header-text {
-            flex: 1;
-            text-align: center;
-        }
-
-        .buttons {
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        .buttons button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .buttons button:hover {
-            background-color: #0056b3;
-        }
-
-        main {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 5px;
-        }
-
-        section {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
+            border: 2px solid #e5e7eb;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        section h2 {
-            color: #007bff;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        article {
-            margin-bottom: 10px;
-        }
-
-        article h3 {
-            font-size: 1.2em;
-            color: #333;
-            margin: 6px 0;
-        }
-        h4 {
-            font-size: 1em;
-            margin: 5px 0;
-        }
-
-        article p {
-            margin: 5px 0;
-            color: #555;
-        }
-
-        .education-item {
-            display: flex;
-            gap: 100px;
+        @media (min-width: 640px) {
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         @media print {
-            .buttons {
-                display: none !important;
-            }
-
-            body {
-                margin: 0;
-                padding: 2mm;
-                font-size: 10pt;
-            }
-
-            .profile-photo {
-                width: 100pt;
-                height: 100pt;
-            }
-
-            .header-text {
-                text-align: center;
-            }
-
-
-
-            section {
-                margin-bottom: 2mm;
-            }
-
-            article.job,
-            article.project {
-                page-break-inside: avoid;
-            }
-
-            @page {
-                margin: 2mm;
-                size: A4;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .buttons {
+            .no-print {
                 display: none;
             }
 
-            .profile-photo {
-                width: 80px;
-                height: 80px;
+            body {
+                font-size: 10pt;
+                color: #000;
             }
 
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
 
+            .section {
+                /* page-break-inside: avoid; */
+            }
+
+            .profile-photo {
+                border: 1px solid #000;
+                box-shadow: none;
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script>
-        function downloadPDF() {
-            const buttons = document.querySelector('.buttons');
-            if (buttons) buttons.style.display = 'none';
-
-            const element = document.body;
-            const options = {
-                margin: 0.1,
-                filename: '刘健_简历.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-                html2pdf: {
-                    html2canvas: {
-                        onclone: (clonedDoc) => {
-                            const clonedButtons = clonedDoc.querySelector('.buttons');
-                            if (clonedButtons) clonedButtons.style.display = 'none';
-                        }
-                    }
-                }
-            };
-
-            html2pdf().set(options).from(element).save().then(() => {
-                if (buttons) buttons.style.display = 'block';
-            });
-        }
-    </script>
 </head>
 
-<body>
-    <header>
-        <img src="./liujian.jpg" alt="刘健的头像" class="profile-photo">
-        <div class="header-text">
-            <h1>刘健</h1>
-            <div class="contact-info">
-                <span>📞 188-7118-3644</span>
-                <span>✉️ stephen925@foxmail.com</span>
-                <span>📍 上海</span>
+<body class="bg-gray-100 font-sans leading-relaxed text-gray-800">
+    <div class="container mx-auto max-w-4xl bg-white shadow-lg rounded-lg p-6 sm:p-8 my-4 sm:my-8">
+        <!-- Header -->
+        <header
+            class="flex flex-col sm:flex-row sm:items-start sm:justify-between border-b-2 border-gray-200 pb-4 mb-6">
+            <div class="flex items-start space-x-4 mb-4 sm:mb-0">
+                <img src="./liujian.jpg" alt="刘健的头像" class="profile-photo">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">刘健</h1>
+                    <div class="mt-2 text-gray-600 text-sm sm:text-base">
+                        <p>📞 188-7118-3644</p>
+                        <p>✉️ stephen925@foxmail.com</p>
+                        <p>📍 上海</p>
+                    </div>
+                </div>
             </div>
-            <div class="buttons">
-                <button onclick="window.print()">打印简历</button>
-                <button onclick="downloadPDF()">下载PDF</button>
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <section id="core-advantages">
-            <h2>核心优势</h2>
-            <ul>
+        <!-- Core Competencies -->
+        <section class="section mb-6 sm:mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 border-l-4 border-blue-600 pl-4 mb-4">核心优势</h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
                 <li>4.5年专业前端开发经验，精通Vue.js、React及跨端框架，交付高性能Web与移动端应用，服务110万+用户</li>
                 <li>跨平台开发：熟练Taro、UniApp、Vant UI，统一多端体验（微信/支付宝小程序、Android/iOS），兼容性达99%</li>
                 <li>数据可视化专长：基于ECharts、Ucharts实现15+交互式图表，支持实时数据分析与动态展示</li>
@@ -224,116 +83,122 @@
             </ul>
         </section>
 
-        <section id="work-experience">
-            <h2>工作经验</h2>
-            <article class="job">
-                <h3>高级前端开发工程师</h3>
-                <p>上海某健身器材研发公司 · 上市公司 · 员工1000+ · 年营收15亿+</p>
-                <p>2023.02 - 至今</p>
-                <ul>
+        <!-- Work Experience -->
+        <section class="section mb-6 sm:mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 border-l-4 border-blue-600 pl-4 mb-4">工作经历</h2>
+            <div class="mb-6">
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-800">高级前端开发工程师</h3>
+                <p class="text-gray-600 text-sm sm:text-base">舒华体育 · 上市公司 · 员工1000+ · 年营收15亿+ | 2023.02 - 至今</p>
+                <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-700 text-sm sm:text-base">
                     <li>独立负责Vue2+ElementUI企业级管理后台开发，支持110万+用户，优化流程，提升运营效率20%</li>
                     <li>核心参与公司自研原生微信小程序开发，移动端数据可视化开发，Ucharts图表，支持110万+用户</li>
-                    <li>独立负责ECharts实时数据大屏前端开发，数据可视化、实时数据自动更新、数据滚动显示。</li>
+                    <li>独立负责ECharts实时数据大屏前端开发，数据可视化、实时数据自动更新、数据滚动显示</li>
                     <li>独立负责Taro+React公司自研的商城微信小程序前端开发</li>
                     <li>独立负责Vant+Vue2 H5页面嵌入App，确保跨Android、iOS设备无缝适配</li>
                     <li>独立负责军警系统Vue2+ElementUI局域网的管理后台和ECharts数据大屏开发</li>
                 </ul>
-                <p><strong>技术栈：</strong> Vue2, ElementUI, ECharts, Ucharts,Taro, React, Vant, 原生微信小程序</p>
-            </article>
-            <article class="job">
-                <h3>前端开发工程师</h3>
-                <p>武汉某科技公司 · 成长型企业</p>
-                <p>2021.02 - 2023.01</p>
-                <ul>
+                <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> Vue2, ElementUI, ECharts,
+                    Ucharts, Taro, React, Vant, 原生微信小程序</p>
+            </div>
+            <div>
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-800">前端开发工程师</h3>
+                <p class="text-gray-600 text-sm sm:text-base">麦诺软创 · 成长型企业 | 2021.02 - 2023.01</p>
+                <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-700 text-sm sm:text-base">
                     <li>独立负责，使用UniApp开发跨平台应用，同一套代码适配微信小程序和支付宝小程序，统一用户体验</li>
                     <li>独立负责，UniApp开发跨平台应用，同一套代码适配Android和iOS，以及微信小程序和支付宝小程序，统一用户体验</li>
                     <li>独立负责，使用HTML5、CSS3、JavaScript等技术栈开发自适应PC端和移动端公司官网</li>
                     <li>核心参与Vue3+Element-Plus开发管理后台</li>
-
                 </ul>
-                <p><strong>技术栈：</strong> UniApp, Vue3, 微信小程序, HTML5,CSS3 ,JavaScript移动端开发</p>
-            </article>
-        </section>
-
-        <section id="core-projects">
-            <h2>核心项目</h2>
-            <article class="project">
-                <h3>来一场管理后台</h3>
-                <p>简介：Vue2+ElementUI管理后台，集成场地、园区、项目、会员、用户、课程、器材、运营、产品、预约、训练计划、售后管理等，实时监控，提升企业效率</p>
-                <h4>关键成就：</h4>
-                <ul>
-                    <li>前后端分离架构，确保99.9%稳定性</li>
-                    <li>优化用户流程，降低学习曲线，提高生产力</li>
-                </ul>
-                <p><strong>技术栈：</strong> Vue2, ElementUI</p>
-            </article>
-            <article class="project">
-                <h3>来一场数据大屏</h3>
-                <p>简介：实时健身大数据监控大屏，支持用户行为分析、训练完成率统计和实时数据可视化，提升运营决策效率。</p>
-                <h4>关键成就：</h4>
-                <ul>
-                    <li>实现15+交互式图表（如性别/年龄分布、趋势图、排行榜），支持实时更新、数据滚动和动态列表展示。</li>
-                    <li>前后端分离架构，确保99.9%系统稳定性，处理高并发实时数据（如当前在场人数、运动详情）。</li>
-                    <li>响应式设计，多端适配（PC、平板、手机），结合ECharts和自定义CSS优化用户洞察体验。</li>
-                </ul>
-                <p><strong>技术栈：</strong> Vue2, ECharts</p>
-            </article>
-            <article class="project">
-                <h3>舒华服务APP</h3>
-                <p>简介：基于Vant UI的H5管理页面，无缝嵌入Android/iOS App，实现项目、园区、场地和产品的添加/编辑，提升后台运营效率。</p>
-                <h4>关键成就：</h4>
-                <ul>
-                    <li>集成表单验证、地图定位（ShGdMap）、弹出框搜索和文件上传，支持跨平台热更新，减少App审核周期。</li>
-                    <li>自定义组件（如MyPopup、日历选择、单选组），确保用户友好交互，降低开发和维护成本20%。</li>
-                    <li><strong>提升用户体验 | 降低开发成本</strong></li>
-                </ul>
-                <p><strong>技术栈：</strong> Vant、Vue2</p>
-            </article>
-                 </article>
-                  <article class="project">
-                <h3>好社区</h3>
-                <p>简介：响应式H5页面，适配跑步机、划船器等健身器材的多尺寸屏幕，提供运动指导、饮食建议、记录和排名功能，支持110万+用户。</p>
-                <h4>关键成就：</h4>
-                <ul>
-                    <li>媒体查询和flex布局实现自适应（e.g., min-width:1100px调整字体大小），兼容PC/移动端，确保无缝显示图表和图像。</li>
-                    <li>Tab切换和实时API加载，结合垂直文字展示，nodata处理，提升交互性和数据可视化体验。</li>
-                    <li><strong>110万+ 用户 | 多设备适配</strong></li>
-                </ul>
-                <p><strong>技术栈：</strong> Vue2,</p>
-            </article>
-            <article class="project">
-                <h3>来一场、舒华运动健身</h3>
-                <p>简介：来一场小程序，原生微信小程序（110万+ 用户） + 基于Taro、React的积分商城小程序</p>
-                <h4>关键成就：</h4>
-                <ul>
-                    <li>原生微信小程序，用Ucharts实现与华为合作的鸿蒙系统跑步机运动指导相关图表可视化功能，将运动指导功能嵌入小程序，提升用户体验</li>
-                    <li>使用Taro、React实现官方商城小程序，提升开发效率</li>
-                    <li><strong>110万+ 用户</strong></li>
-                </ul>
-                <p><strong>技术栈：</strong> Taro, React,原生微信小程序、Ucharts</p>
-       
-            <article class="project">
-                <h3>易企餐APP、马上通电小程序</h3>
-                <p>简介：基于UniApp的企业订餐App，和预约上门维修、安装服务的小程序（微信和支付宝小程序）</p>
-                <h4>关键成就：</h4>
-                <ul>
-                    <li>代码复用提升开发效率50%，一码多端</li>
-                    <li>99%设备兼容性，适配Android、iOS，微信小程序、支付宝小程序</li>
-                    <li><strong>提升用户体验 | 降低开发成本</strong></li>
-                </ul>
-                <p><strong>技术栈：</strong> UniApp</p>
-            </article>
-
-        </section>
-
-        <section id="education">
-            <h2>教育背景</h2>
-            <div class="education-item">
-                <p><strong>武汉科技大学</strong></p>
-                <p>计算机相关专业 · 大专</p>
-                <p>2022 - 2025</p>
+                <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> UniApp, Vue3, 微信小程序, HTML5,
+                    CSS3, JavaScript移动端开发</p>
             </div>
         </section>
-    </main>
+
+        <!-- Project Experience -->
+        <section class="section mb-6 sm:mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 border-l-4 border-blue-600 pl-4 mb-4">核心项目经历</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">来一场管理后台</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        简介：Vue2+ElementUI管理后台，集成场地、园区、项目、会员、用户、课程、器材、运营、产品、预约、训练计划、售后管理等，实时监控，提升企业效率</p>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>关键成就：</strong></p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+                        <li>前后端分离架构，确保99.9%稳定性</li>
+                        <li>优化用户流程，降低学习曲线，提高生产力</li>
+                    </ul>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> Vue2, ElementUI</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">来一场数据大屏</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">简介：实时健身大数据监控大屏，支持用户行为分析、训练完成率统计和实时数据可视化，提升运营决策效率</p>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>关键成就：</strong></p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+                        <li>实现15+交互式图表（如性别/年龄分布、趋势图、排行榜），支持实时更新、数据滚动和动态列表展示</li>
+                        <li>前后端分离架构，确保99.9%系统稳定性，处理高并发实时数据（如当前在场人数、运动详情）</li>
+                        <li>响应式设计，多端适配（PC、平板、手机），结合ECharts和自定义CSS优化用户洞察体验</li>
+                    </ul>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> Vue2, ECharts</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">舒华服务APP</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">简介：基于Vant UI的H5管理页面，无缝嵌入Android/iOS
+                        App，实现项目、园区、场地和产品的添加/编辑，提升后台运营效率</p>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>关键成就：</strong></p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+                        <li>集成表单验证、地图定位（ShGdMap）、弹出框搜索和文件上传，支持跨平台热更新，减少App审核周期</li>
+                        <li>自定义组件（如MyPopup、日历选择、单选组），确保用户友好交互，降低开发和维护成本20%</li>
+                        <li>提升用户体验 | 降低开发成本</li>
+                    </ul>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> Vant, Vue2</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">好社区</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        简介：响应式H5页面，适配跑步机、划船器等健身器材的多尺寸屏幕，提供运动指导、饮食建议、记录和排名功能，支持110万+用户</p>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>关键成就：</strong></p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+                        <li>媒体查询和flex布局实现自适应（e.g., min-width:1100px调整字体大小），兼容PC/移动端，确保无缝显示图表和图像</li>
+                        <li>Tab切换和实时API加载，结合垂直文字展示，nodata处理，提升交互性和数据可视化体验</li>
+                        <li>110万+ 用户 | 多设备适配</li>
+                    </ul>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> Vue2</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">来一场、舒华运动健身</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">简介：来一场小程序，原生微信小程序（110万+ 用户） + 基于Taro、React的积分商城小程序</p>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>关键成就：</strong></p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+                        <li>原生微信小程序，用Ucharts实现与华为合作的鸿蒙系统跑步机运动指导相关图表可视化功能，将运动指导功能嵌入小程序，提升用户体验</li>
+                        <li>使用Taro、React实现官方商城小程序，提升开发效率</li>
+                        <li>110万+ 用户</li>
+                    </ul>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> Taro, React, 原生微信小程序,
+                        Ucharts</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800">易企餐APP、马上通电小程序</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">简介：基于UniApp的企业订餐App，和预约上门维修、安装服务的小程序（微信和支付宝小程序）</p>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>关键成就：</strong></p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+                        <li>代码复用提升开发效率50%，一码多端</li>
+                        <li>99%设备兼容性，适配Android、iOS，微信小程序、支付宝小程序</li>
+                        <li>提升用户体验 | 降低开发成本</li>
+                    </ul>
+                    <p class="mt-2 text-gray-600 text-sm sm:text-base"><strong>技术栈：</strong> UniApp</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 border-l-4 border-blue-600 pl-4 mb-4">教育经历</h2>
+            <div>
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-800">武汉科技大学</h3>
+                <p class="text-gray-600 text-sm sm:text-base">计算机相关专业 · 大专 | 2022 - 2025</p>
+            </div>
+        </section>
+    </div>
 </body>
+
 </html>
